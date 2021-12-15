@@ -14,6 +14,7 @@ return [
     */
 
     'default' => env('FILESYSTEM_DRIVER', 'local'),
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -62,7 +63,6 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
-            'endpoint' => env('AWS_ENDPOINT'),
         ],
 
     ],

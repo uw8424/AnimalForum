@@ -1,0 +1,100 @@
+@media (min-width: 768px) {
+.navbar-brand
+    {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+a.navbar-brand{
+    font-size: 200%;
+}
+
+.navbar {
+    font-family: Hannotate SC;
+}
+
+header nav.bg-info{
+    background-color: #ff6c94!important;
+}
+
+h1.top {
+    margin-top: 100px;
+    /*animation: fadeIn 2s ease 0.3s 1 normal;*/
+    animation-timing-function: linear;
+}
+
+@keyframes fadeIn{ /*animation-nameで設定した値を書く*/
+
+  0% {opacity: 0} /*アニメーション開始時は不透明度0%*/
+
+  100% {opacity: 1} /*アニメーション終了時は不透明度100%*/
+
+}
+
+
+body {
+    background-image: url(images/niku.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.rounded-circle {
+    width:  50px;       /* ※縦横を同値に */
+    height: 50px;       /* ※縦横を同値に */
+    border-radius: 50%;
+    background-position: center center;
+    /*border: 3px solid rgba(0,255,0,0.5);*/
+}
+
+.show-icon {
+    height: 200px;
+    width: 200px;
+}
+
+.dog {
+    border-radius: 50%;
+    height: 40%;
+    width: 40%;
+}
+
+.dog1 { 
+    width:  40%;       /* ※縦横を同値に */
+    height: 40%;       /* ※縦横を同値に */
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    background-position: center center;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 40rem;
+    object-fit: cover;
+}
+
+a.nav-link {
+    font-family: Hannotate SC;
+}
+
+.user-name {
+    font-size: 2rem;
+    margin-top: 5%;
+}
+
+.heart {
+    color: #f67690;
+}
+
+div img.post-icon {
+    width: 4rem;
+    height: 4rem;
+}
+
+@media (max-width: 767px){
+h1.top {
+    width: auto;
+    font-size: 20px!important;
+}
+}
