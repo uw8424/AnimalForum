@@ -3,7 +3,7 @@
         @foreach ($posts as $post)
             <li class="post border-info card mt-3">
                  <div class="card-header d-flex justify-content-between">
-                     <div><img src="{{ asset("storage/images/" .$post->user->avatar) }}" class="rounded-circle img-thumbnail post-icon" width="50" height="50"><span class="user-name">{{$post->user->name}}</span></div>
+                     <div><img src="{{ $post->user->avatar }}" class="rounded-circle img-thumbnail post-icon" width="50" height="50"><span class="user-name">{{$post->user->name}}</span></div>
                      <div>投稿した日付：{{ $post->created_at }}</div>
                  </div>
                  {{-- 投稿した写真 --}}

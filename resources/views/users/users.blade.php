@@ -2,7 +2,7 @@
     <ul class="list-unstyled">
         @foreach($users as $user)
             <li class="post">
-                <img src="{{ asset("storage/images/" .$user->avatar) }}" class="rounded-circle img-thumbnail">
+                <img src="{{ $user->avatar }}" class="rounded-circle img-thumbnail">
                 <div class="post-user">
                     <div>{{ $user->name }}</div>
                 </div>

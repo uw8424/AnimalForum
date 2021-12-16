@@ -4,7 +4,7 @@
         </div>
         <div class="card-body">
             {{-- ユーザーが登録の際に投稿した画像を表示 --}}
-            <img src="{{ asset("storage/images/" .$user->avatar) }}" class="rounded-circle show-icon img-thumbnail ml-5">
+            <img src="{{ $user->avatar }}" class="rounded-circle show-icon img-thumbnail ml-5">
         </div>
         {{-- フォローボタン --}}
         @include("user_follow.follow_button")
