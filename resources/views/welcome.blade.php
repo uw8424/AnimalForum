@@ -28,8 +28,8 @@
                 <div class="col-md-4"> {!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-lg btn-info ']) !!} </div>
             </div>
             <div class="row justify-content-between">
-                <img src="{{ asset("storage/images/dog2.jpg") }}" class="dog mt-5">
-                <img src="{{ asset("storage/images/mark.jpeg.png") }}" class="dog1 mt-5">
+                <img src="{{ asset('images/dog2.jpg') }}" class="dog mt-5">
+                <img src="{{ asset("images/mark.jpeg") }}" class="dog1 mt-5">
             </div>
         </div>
     @endif

@@ -66,10 +66,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //s3アップロード開始
         $avatar = $data["avatar"];
-        
+        // バケットの"myprefix"フォルダへアップロード
         $path = Storage::disk('s3')->putFile('myprefix', $avatar, 'public');
-        
+        //アップロードした画像のフルパスを取得
         $avatar->avatar = Storage::disk('s3')->url($path);
         
         $user = User::create([
