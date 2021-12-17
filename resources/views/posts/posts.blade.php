@@ -14,14 +14,14 @@
                             <p class="mb-0">{!! nl2br(e($post->content)) !!}</p>
                         </div>
                         <div class="d-flex flex-row">
-                            <div>
+                            <div class="mt-3">
                                 @if(Auth::id() === $post->user_id)
                                 {!! Form::open(["route" => ["posts.destroy", $post->id], "method" => "delete"]) !!}
                                     {!! Form::submit("削除", ["class" => "btn btn-danger btn-sm"]) !!}
                                 {!! Form::close() !!}
                                 @endif
                             </div>
-                            <div>
+                            <div class="mt-2">
                                 @include("user_favorite.favorite_button")
                             </div>
                         </div>    
