@@ -142,4 +142,17 @@ p.h2 {
     width: 70%;
 }
 
+.user-name {
+    font-size: 50%;
+}
+
+.post-icon {
+    width: 3px;
+}
+
+.date {
+    font-size: 10px;
+
+}
+
 }

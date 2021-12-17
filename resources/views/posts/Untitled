@@ -2,9 +2,9 @@
     <ul class="list-unstyled">
         @foreach ($posts as $post)
             <li class="post border-info card mt-3">
-                 <div class="card-header media">
-                     <div class="media-left"><img src="{{ $post->user->avatar }}" class="rounded-circle img-thumbnail post-icon" width="50" height="50"><span class="user-name">{{$post->user->name}}</span></div>
-                     <div class="media-right date">投稿した日付：{{ $post->created_at }}</div>
+                 <div class="card-header d-flex justify-content-between">
+                     <div><img src="{{ $post->user->avatar }}" class="rounded-circle img-thumbnail post-icon" width="50" height="50"><span class="user-name">{{$post->user->name}}</span></div>
+                     <div>投稿した日付：{{ $post->created_at }}</div>
                  </div>
                  {{-- 投稿した写真 --}}
                  <a href="{{ $post->photo }}" data-lightbox="group"><img src="{{ $post->photo }}" class="post-photo card-img-top"></a>
