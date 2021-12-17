@@ -24,8 +24,8 @@
                
             </div>
             <div class="d-flex flex-row justify-content-between mt-5">
-                <div class="col-md-4 offset-md-2"> {!! link_to_route('signup.get', '登録する！', [], ['class' => 'btn btn-lg btn-info zoomOut']) !!} </div>
-                <div class="col-md-4"> {!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-lg btn-info zoomOut']) !!} </div>
+                <div class="col-md-4 offset-md-2"> {!! link_to_route('signup.get', '登録する！', [], ['class' => 'btn btn-lg btn-info zoomOut signup-button']) !!} </div>
+                <div class="col-md-4 login-button"> {!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-lg btn-info zoomOut']) !!} </div>
             </div>
             <div class="row justify-content-around">
                 <img src="{{ asset('images/dog1.png') }}" class="dog mt-5 rounded-circle border border-dark zoomIn">
