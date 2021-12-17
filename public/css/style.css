@@ -21,18 +21,49 @@ header nav.bg-info{
 
 h1.top {
     margin-top: 100px;
-    /*animation: fadeIn 2s ease 0.3s 1 normal;*/
+    animation: fadeIn 2s ease 0.3s 1 normal;
     animation-timing-function: linear;
 }
-
-@keyframes fadeIn{ /*animation-nameで設定した値を書く*/
-
-  0% {opacity: 0} /*アニメーション開始時は不透明度0%*/
-
-  100% {opacity: 1} /*アニメーション終了時は不透明度100%*/
-
+.fadeUp {
+animation-name:fadeUpAnime;
+animation-duration:0.5s;
+animation-fill-mode:forwards;
+opacity: 0;
 }
 
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+	transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+	transform: translateY(0);
+  }
+}
+
+
+.fade1 {opacity: 0;}
+.fade2 {animation-delay: 1s;}
+.fade3 {animation-delay: 2s;}
+
+.zoomOut{
+	animation-name:zoomOutAnime;
+	animation-duration:1s;
+	animation-fill-mode:forwards;
+	animation-delay: 2s;
+}
+
+@keyframes zoomOutAnime{
+  from {
+	transform: scale(1.2);
+  }
+
+  to {
+      transform:scale(1);
+  }
+}
 
 body {
     background-image: url(images/niku.png);
@@ -55,17 +86,26 @@ body {
     width: 200px;
 }
 
-.dog {
-    border-radius: 50%;
-    height: 40%;
-    width: 40%;
+.dog { 
+    width:  45%;       /* ※縦横を同値に */
+    height: 40%;       /* ※縦横を同値に */
+    background-position: center center;
 }
 
-.dog1 { 
-    width:  40%;       /* ※縦横を同値に */
-    height: 40%;       /* ※縦横を同値に */
-    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-    background-position: center center;
+.zoomIn{
+	animation-name:zoomInAnime;
+	animation-duration:0.5s;
+	animation-fill-mode:forwards;
+}
+
+@keyframes zoomInAnime{
+  from {
+	transform: scale(0.6);
+  }
+
+  to {
+      transform: scale(1);
+  }
 }
 
 .card-img-top {
@@ -93,8 +133,9 @@ div img.post-icon {
 }
 
 @media (max-width: 767px){
-h1.top {
+p.h2 {
     width: auto;
     font-size: 20px!important;
 }
+
 }
