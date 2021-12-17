@@ -1,14 +1,26 @@
 @if (count($users) > 0)
     <ul class="list-unstyled">
         @foreach($users as $user)
-            <li class="post">
-                <img src="{{ $user->avatar }}" class="rounded-circle img-thumbnail">
-                <div class="post-user">
-                    <div>{{ $user->name }}</div>
+            <li class="media row">
+                <div class="col-8"><div class="media-left"><img src="{{ $user->avatar }}" class="rounded-circle img-thumbnail"></div>
+                    <div class="media-body">
+                        <div>{{ $user->name }}</div>
+                        <div>{!! link_to_route("users.show", "プロフィール", ["user" => $user->id]) !!}</div>
+                    </div>
                 </div>
-                <div>
-                    {{-- ユーザー詳細ページへのリンク --}}
-                    <p>{!! link_to_route("users.show", "プロフィール", ["user" => $user->id]) !!}</p>
+                <div class="col-4 mt-3">
+                    @if(Auth::id() != $user->id)
+                        @if(Auth::user()->is_following($user->id))
+                            {{-- フォロー外すボタン --}}
+                            {!! Form::open(["route" => ["users.unfollow", $user->id], "method" => "delete"]) !!}
+                                {!! Form::submit("フォローを外す", ["class" => "btn btn-danger btn-block"]) !!}
+                            {!! Form::close() !!}
+                        @else
+                            {!! Form::open(["route" => ["users.follow", $user->id]]) !!}
+                                {!! Form::submit("フォロー", ["class" => "btn btn-primary btn-block"]) !!}
+                            {!! Form::close() !!}
+                        @endif
+                    @endif    
                 </div>
             </li>
         @endforeach    
