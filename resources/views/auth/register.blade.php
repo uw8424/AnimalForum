@@ -23,6 +23,11 @@
                     {!! Form::label("avatar", "アイコン") !!}
                     {!! Form::file("avatar") !!}
                 </div>
+                
+                <div class="form-group">
+                    {!! Form::label("introduction", "自己紹介文") !!}
+                    {!! Form::textarea("introduction", null, ["class" => "form-control"]) !!}
+                </div>
 
                 <div class="form-group">
                     {!! Form::label('password', 'パスワード') !!}

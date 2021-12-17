@@ -55,6 +55,7 @@ class RegisterController extends Controller
             "avatar" =>["required", "image", "mimes:jpeg,png,jpg,bmb"],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            "introduction" => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -78,6 +79,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             "avatar" => $avatar->avatar,
             'password' => Hash::make($data['password']),
+            "introduction" => $data["introduction"],
         ]);
         return $user;
     }

@@ -6,6 +6,9 @@
             {{-- ユーザーが登録の際に投稿した画像を表示 --}}
             <img src="{{ $user->avatar }}" class="rounded-circle show-icon img-thumbnail ml-5">
         </div>
+        <div class="border">
+            <p class="h4">{{ $user->introduction }}</p>
+        </div>
         {{-- フォローボタン --}}
         @include("user_follow.follow_button")
 </div>
