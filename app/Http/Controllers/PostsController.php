@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Storage;
 
+use App\Post;
+
 class PostsController extends Controller
 {
     public function index()
@@ -57,5 +59,32 @@ class PostsController extends Controller
             $post->delete();
         } 
         return back();
+    }
+    
+    public function edit($id)
+    {
+        $post = Post::findOrFail($id);
+        
+        return view("posts.edit",[
+            "post" => $post,
+            ]);
+    }
+    
+    public function update(Request $request, $id)
+    {
+        $post = Post::findOrFail($id);
+        
+        $image = $request->file("photo");
+        
+        $path = Storage::disk('s3')->putFile('myprefix', $image, 'public');
+        
+        $request->photo = Storage::disk('s3')->url($path);
+        
+        $post->content = $request->content;
+        $post->photo = $request->photo;
+        
+        $post->save();
+        
+        return redirect("/");
     }
 }

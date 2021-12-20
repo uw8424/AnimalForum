@@ -2,7 +2,7 @@
     <ul class="list-unstyled">
         @foreach ($posts as $post)
             <li class="post border-info card mt-3">
-                 <div class="card-header media row">
+                 <div class="card-header media row post-header">
                      <div class="media-left"><img src="{{ $post->user->avatar }}" class="rounded-circle img-thumbnail post-icon" width="50" height="50"><span class="user-name">{{$post->user->name}}</span></div>
                      <div class="media-right date ml-2">投稿した日付：{{ $post->created_at }}</div>
                  </div>
@@ -23,6 +23,11 @@
                             </div>
                             <div class="mt-2">
                                 @include("user_favorite.favorite_button")
+                            </div>
+                            <div class="mt-3">
+                                @if(Auth::id() === $post->user_id)
+                                    {!! link_to_route("posts.edit", "編集", ["post" => $post->id], ["class" => "btn btn-info btn-sm"]) !!}
+                                @endif
                             </div>
                         </div>    
                     </div> 

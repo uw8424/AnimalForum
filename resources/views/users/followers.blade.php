@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
-    <div class="row">
+    <div class="row mt-5">
         <aside class="col-sm-4">
             {{-- ユーザー情報 --}}
             @include("users.card")

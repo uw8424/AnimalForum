@@ -13,7 +13,7 @@
                         @if(Auth::user()->is_following($user->id))
                             {{-- フォロー外すボタン --}}
                             {!! Form::open(["route" => ["users.unfollow", $user->id], "method" => "delete"]) !!}
-                                {!! Form::submit("フォローを外す", ["class" => "btn btn-danger btn-block"]) !!}
+                                {!! Form::submit("フォローを外す", ["class" => "btn btn-danger btn-block follow-delete"]) !!}
                             {!! Form::close() !!}
                         @else
                             {!! Form::open(["route" => ["users.follow", $user->id]]) !!}

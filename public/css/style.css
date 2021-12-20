@@ -11,6 +11,12 @@ a.navbar-brand{
     font-size: 200%;
 }
 
+.post-header {
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-right: 10px;
+}
+
 .navbar {
     font-family: Hannotate SC;
 }
@@ -158,5 +164,6 @@ p.h2 {
 .show-icon {
     width: 70%;
 }
+
 
 }
