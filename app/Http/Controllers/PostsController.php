@@ -32,15 +32,17 @@ class PostsController extends Controller
         
         $request->validate([
             "content" => "required|max:255",
-            "photo" => ["required", "image", 'mimes:jpeg,png,jpg,bmb,heic'],
+            "photo" => "required|image"
             ]);
         
+        if($request->has("photo")){
         $image = $request->file("photo");
         
         $path = Storage::disk('s3')->putFile('myprefix', $image, 'public');
         
         $request->photo = Storage::disk('s3')->url($path);
-            
+        
+        }
             
         $request->user()->posts()->create([
             "content" => $request->content,
@@ -72,6 +74,8 @@ class PostsController extends Controller
     
     public function update(Request $request, $id)
     {
+        
+        
         $post = Post::findOrFail($id);
         
         $image = $request->file("photo");
@@ -86,5 +90,20 @@ class PostsController extends Controller
         $post->save();
         
         return redirect("/");
+    }
+    
+    public function comment(Request $request)
+    {
+        $request->validate([
+            "content" => "string",
+            ]);
+            
+        $request->user()->posts()->create([
+            "content" => $request->content,
+            "user_id" => $request->user()->id,
+            "comment_id" => $request->post_id,
+            ]);
+            
+        return back();
     }
 }

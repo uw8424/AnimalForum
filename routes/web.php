@@ -33,6 +33,9 @@ Route::group(["middleware" => ["auth"]], function () {
     Route::group(["prefix" => "posts/{id}"], function () {
         Route::post("favorite","FavoritesController@store")->name("favorites.favorite");
         Route::delete("unfavorire", "FavoritesController@destroy")->name("favorites.unfavorite");
+        Route::post("comment", "CommentController@store")->name("posts.comment");
+        Route::get("comments", "CommentController@index")->name("posts.comments");
+        Route::delete("commentDelete","CommentController@destroy")->name("comment.delete");
     });
     
     Route::resource("posts", "PostsController", ["only" => ["store", "destroy","edit","update",]]);

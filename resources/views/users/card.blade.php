@@ -4,7 +4,7 @@
         </div>
         <div class="card-body">
             {{-- ユーザーが登録の際に投稿した画像を表示 --}}
-            <img src="{{ $user->avatar }}" class="rounded-circle show-icon img-thumbnail ml-5">
+            <img src="{{ $user->avatar ? Storage::disk('s3')->url($user->avatar) : asset('images/user_default.jpg') }}" class="rounded-circle show-icon img-thumbnail ml-5">
         </div>
         <div class="border">
             <p class="h4">{{ $user->introduction }}</p>

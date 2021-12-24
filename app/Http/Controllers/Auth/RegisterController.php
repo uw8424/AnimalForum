@@ -52,11 +52,12 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            "avatar" =>["required", "image", "mimes:jpeg,png,jpg,bmb"],
+            "avatar" => "nullable|image",
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            "introduction" => ['required', 'string', 'max:255'],
+            "introduction" => "nullable|string",
         ]);
+        
     }
 
     /**
@@ -67,17 +68,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        //s3アップロード開始
-        $avatar = $data["avatar"];
-        // バケットの"myprefix"フォルダへアップロード
-        $path = Storage::disk('s3')->putFile('myprefix', $avatar, 'public');
-        //アップロードした画像のフルパスを取得
-        $avatar->avatar = Storage::disk('s3')->url($path);
+        $path = null;
+        if(isset($data["avatar"])){
+            //s3アップロード開始
+            $avatar = $data["avatar"];
+            // バケットの"myprefix"フォルダへアップロード
+            $path = Storage::disk('s3')->putFile('myprefix', $avatar, 'public');
+        } 
         
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            "avatar" => $avatar->avatar,
+            "avatar" => $path,
             'password' => Hash::make($data['password']),
             "introduction" => $data["introduction"],
         ]);

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable = ["content", "photo"];
+    protected $fillable = ["content", "photo",];
     
     //Userモデルとの関係を定義
     public function user()
@@ -17,5 +17,11 @@ class Post extends Model
     public function favorite_users()
     {
         return $this->belongsToMany(User::class, "post_favorite", "post_id", "user_id");
+    }
+    
+    //Commentモデルとの関係を定義
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

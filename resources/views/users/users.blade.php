@@ -2,7 +2,7 @@
     <ul class="list-unstyled">
         @foreach($users as $user)
             <li class="media row">
-                <div class="col-8"><div class="media-left"><img src="{{ $user->avatar }}" class="rounded-circle img-thumbnail"></div>
+                <div class="col-8"><div class="media-left"><img src="{{ $user->avatar ? Storage::disk('s3')->url($user->avatar) : asset('images/user_default.jpg') }}" class="rounded-circle img-thumbnail"></div>
                     <div class="media-body">
                         <div>{{ $user->name }}</div>
                         <div>{!! link_to_route("users.show", "プロフィール", ["user" => $user->id]) !!}</div>

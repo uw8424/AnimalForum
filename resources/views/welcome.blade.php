@@ -3,7 +3,7 @@
 @section("content")
     
     @if (Auth::check())    
-        <div class="alert alert-success text-center" role="alert">ようこそ！{{$user->name}}さん</div>
+        <div class="d-flex flex-ro justify-content-center"><div class="alert alert-success text-center col-sm-6" role="alert">ようこそ！<br>{{$user->name}}さん</div></div>
         <div class="row mt-5">
             <aside class="col-sm-4">
                 {{--ユーザー情報--}}

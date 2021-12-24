@@ -149,4 +149,10 @@ class User extends Authenticatable
     {
         return $this->favorites()->where("post_id", $postId)->exists();
     }
+    
+    public function comments()
+    {
+        //Commentモデルとの関係を定義
+        return $this->hasMany(Comment::class);
+    }
 }
