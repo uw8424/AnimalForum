@@ -2,8 +2,10 @@
     <ul class="list-unstyled">
         @foreach($users as $user)
             <li class="media row">
+                {{-- ユーザーが登録の際に投稿した画像を表示。登録していなければデフォルト画像 --}}
                 <div class="col-8"><div class="media-left"><img src="{{ $user->avatar ? Storage::disk('s3')->url($user->avatar) : asset('images/user_default.jpg') }}" class="rounded-circle img-thumbnail"></div>
                     <div class="media-body">
+                        {{-- ユーザー名 --}}
                         <div>{{ $user->name }}</div>
                         <div>{!! link_to_route("users.show", "プロフィール", ["user" => $user->id]) !!}</div>
                     </div>
@@ -16,6 +18,7 @@
                                 {!! Form::submit("フォローを外す", ["class" => "btn btn-danger btn-block follow-delete"]) !!}
                             {!! Form::close() !!}
                         @else
+                            {{-- フォローボタン --}}
                             {!! Form::open(["route" => ["users.follow", $user->id]]) !!}
                                 {!! Form::submit("フォロー", ["class" => "btn btn-primary btn-block"]) !!}
                             {!! Form::close() !!}

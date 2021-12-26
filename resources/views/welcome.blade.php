@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
-    
+    {{-- ログインしていればプロフィールへ、していなければトップページを表示。 --}}
     @if (Auth::check())    
         <div class="d-flex flex-ro justify-content-center"><div class="alert alert-success text-center col-sm-6" role="alert">ようこそ！<br>{{$user->name}}さん</div></div>
         <div class="row mt-5">
@@ -16,7 +16,8 @@
                 @include("posts.posts")
             </div>
         </div>
-    @else    
+    @else
+    {{-- ログインしていない場合の表示 --}}
         <div class="center junbotron">
             <div class="text-center mt-5 top">
                <p class="h2 fade1 fadeUp">ようこそ！AnimalForumへ！</p>

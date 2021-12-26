@@ -29,6 +29,7 @@ class CommentController extends Controller
     
     public function index($id)
     {
+        //ユーザーのコメントを取得して表示
         $user = User::find($id);
         
         $comments = $post->comments();
@@ -41,6 +42,7 @@ class CommentController extends Controller
     
     public function destroy($id)
     {
+        //投稿主であればコメントを削除
         $comment = \App\Comment::findOrFail($id);
         
         if(\Auth::id() === $comment->user_id) {

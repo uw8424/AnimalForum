@@ -14,8 +14,9 @@ class PostsController extends Controller
     {
         $data = [];
         if(\Auth::check()) {
+            //ログイン中のユーザー
             $user = \Auth::user();
-            
+            //投稿を読み込み、日付毎に降順で取得。
             $posts = $user->feed_microposts()->orderBy("created_at", "desc")->paginate(15);
             
             $data = [
@@ -34,10 +35,10 @@ class PostsController extends Controller
             "content" => "required|max:255",
             "photo" => "required|image"
             ]);
-        
+        // 送信された内容に”photo”が存在していればs3にアップロード
         if($request->has("photo")){
         $image = $request->file("photo");
-        
+        // バケットの"myprefix"フォルダへアップロード
         $path = Storage::disk('s3')->putFile('myprefix', $image, 'public');
         
         $request->photo = Storage::disk('s3')->url($path);
@@ -55,6 +56,7 @@ class PostsController extends Controller
     
     public function destroy($id)
     {
+        //投稿主であれば投稿を削除
         $post = \App\Post::findOrFail($id);
         
         if(\Auth::id() === $post->user_id) {
@@ -65,6 +67,7 @@ class PostsController extends Controller
     
     public function edit($id)
     {
+        //投稿主であれば投稿を編集
         $post = Post::findOrFail($id);
         
         return view("posts.edit",[
@@ -75,7 +78,7 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         
-        
+        //editで編集した内容を送信する処理
         $post = Post::findOrFail($id);
         
         $image = $request->file("photo");

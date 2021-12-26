@@ -147,6 +147,7 @@ class User extends Authenticatable
     
     public function is_favorites($postId)
     {
+        //お気に入りの投稿の中に同じ投稿が存在しないか
         return $this->favorites()->where("post_id", $postId)->exists();
     }
     

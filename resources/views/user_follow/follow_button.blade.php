@@ -6,6 +6,7 @@
             {!! Form::submit("フォローを外す", ["class" => "btn btn-danger btn-block"]) !!}
         {!! Form::close() !!}
     @else
+        {{-- フォローボタン --}}
         {!! Form::open(["route" => ["users.follow", $user->id]]) !!}
             {!! Form::submit("フォロー", ["class" => "btn btn-primary btn-block"]) !!}
         {!! Form::close() !!}

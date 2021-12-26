@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section("content")
-
+    {{-- 投稿の編集ページ --}}
     <p class="text-center h2 mt-3">編集ページ</p>
     
     <div class="row">
