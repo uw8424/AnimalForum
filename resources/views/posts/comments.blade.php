@@ -20,14 +20,6 @@
                                 {!! Form::close() !!}
                                 @endif
                             </div>
-                            <div class="mt-2">
-                                @include("user_favorite.favorite_button")
-                            </div>
-                            <div class="mt-3">
-                                @if(Auth::id() === $post->user_id)
-                                    {!! link_to_route("posts.edit", "編集", ["post" => $post->id], ["class" => "btn btn-info btn-sm"]) !!}
-                                @endif
-                            </div>
                         </div>    
                     </div> 
                  </div>
