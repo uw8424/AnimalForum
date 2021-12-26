@@ -77,7 +77,10 @@ class PostsController extends Controller
     
     public function update(Request $request, $id)
     {
-        
+         $request->validate([
+            "content" => "required|max:255",
+            "photo" => "required|image"
+            ]);
         //editで編集した内容を送信する処理
         $post = Post::findOrFail($id);
         
