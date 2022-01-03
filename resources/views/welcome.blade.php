@@ -32,6 +32,7 @@
             <div class="row justify-content-around">
                 <img src="{{ asset('images/dog1.png') }}" class="dog mt-5 rounded-circle border border-dark zoomIn">
                 <img src="{{ asset("images/mark1.png") }}" class="dog mt-5 rounded-circle border border-dark zoomIn">
+                <p>企業様は「test@test.com」<br>パスワード「test1234」でログインください。</p>
             </div>
         </div>
     @endif
